@@ -31,6 +31,9 @@ public class VehiculeApp {
 		v1.afficherCaracteristiques();
 		v2.afficherCaracteristiques();
 		v3.afficherCaracteristiques();
+		
+		c2.getVehiculeConduits().add(v2);
+		c2.getVehiculeConduits().add(v3);
 	}
 
 }
