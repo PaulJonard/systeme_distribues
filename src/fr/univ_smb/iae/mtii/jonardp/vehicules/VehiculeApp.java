@@ -24,6 +24,9 @@ public class VehiculeApp {
 		Conducteur c1 = new Conducteur("Holmes", 34);
 		Conducteur c2 = new Conducteur("Calvin", 53);
 		
+		v1.setConducteur(c1);
+		System.out.println(v1.getConducteur().getNom());
+		
 	}
 
 }
