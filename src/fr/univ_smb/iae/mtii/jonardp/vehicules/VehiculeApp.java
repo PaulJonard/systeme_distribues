@@ -1,5 +1,7 @@
 package fr.univ_smb.iae.mtii.jonardp.vehicules;
 
+import fr.univ_smb.iae.mtii.jonardp.personnes.Conducteur;
+
 public class VehiculeApp {
 
 	public static void main(String[] args) {
@@ -18,6 +20,10 @@ public class VehiculeApp {
 		v3.setCouleur("blanche");
 		v3.setNum_imat("AA-003-AA");
 		v2.setVitesse_inst(80);
+		
+		Conducteur c1 = new Conducteur("Holmes", 34);
+		Conducteur c2 = new Conducteur("Calvin", 53);
+		
 	}
 
 }
