@@ -26,7 +26,11 @@ public class VehiculeApp {
 		
 		v1.setConducteur(c1);
 		System.out.println(v1.getConducteur().getNom());
+	
 		
+		v1.afficherCaracteristiques();
+		v2.afficherCaracteristiques();
+		v3.afficherCaracteristiques();
 	}
 
 }
