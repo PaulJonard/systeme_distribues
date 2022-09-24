@@ -15,4 +15,10 @@ public class Voiture extends Vehicule{
 		this.nbPortes = nbPortes;
 	}
 	
+	@Override
+	public String toString() {
+		return super.toString() 
+			+ "Ce véhicule est une voiture " + this.getNbPortes() + " portes."; 
+	}
+	
 }

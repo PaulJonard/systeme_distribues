@@ -11,15 +11,15 @@ public class VehiculeApp {
 		
 		v1.setCouleur("rouge");
 		v1.setNum_imat("AA-001-AA");
-		v1.setVitesse_inst(110);
+		v1.setVitesse_inst(50);
 		
 		v2.setCouleur("grise");
 		v2.setNum_imat("AA-002-AA");
 		v2.setVitesse_inst(90);
 		
-		v3.setCouleur("blanche");
+		v3.setCouleur("jaune");
 		v3.setNum_imat("AA-003-AA");
-		v2.setVitesse_inst(80);
+		v3.setVitesse_inst(40);
 		
 		Conducteur c1 = new Conducteur("Holmes", 34);
 		Conducteur c2 = new Conducteur("Calvin", 53);

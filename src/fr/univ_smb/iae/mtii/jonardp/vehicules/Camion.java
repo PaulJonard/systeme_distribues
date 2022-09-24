@@ -16,4 +16,10 @@ public class Camion extends Vehicule{
 		this.categorie = categorie;
 	}
 	
+	@Override
+	public String toString() {
+		return super.toString() 
+			+ "Ce véhicule est un camion de catégorie " + this.getCategorie(); 
+	}
+	
 }
