@@ -44,4 +44,15 @@ public class Vehicule {
 		this.conducteur = conducteur;
 	}
 	
+	public String toString(){
+		return "Vehicule de marque: "
+		+ this.getMarque()
+		+ " de couleur " +this.getCouleur()
+		+ " roulant a une vitesse de " + this.getVitesse_inst()
+		+ " km/h.\n"; // caractere de retour a la ligne
+		}
+	
+	public void afficherCaracteristiques() {
+		System.out.println( this.toString() ); // on appelle la m'ethode précédente
+		}
 }
