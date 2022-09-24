@@ -1,10 +1,13 @@
 package fr.univ_smb.iae.mtii.jonardp.vehicules;
 
+import fr.univ_smb.iae.mtii.jonardp.personnes.Conducteur;
+
 public class Vehicule {
 	private String marque;
 	private String couleur;
 	private String num_imat;
 	private int vitesse_inst;
+	Conducteur conducteur;
 	
 	public Vehicule(String _marque) {
 		this.marque = _marque;
