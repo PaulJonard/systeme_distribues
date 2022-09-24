@@ -34,6 +34,24 @@ public class VehiculeApp {
 		
 		c2.getVehiculeConduits().add(v2);
 		c2.getVehiculeConduits().add(v3);
+		
+		//Besoin pour la question 18
+		Vehicule v4 = new Voiture("Renault",3);
+		Vehicule v5 = new Camion("MAN",4);
+		
+		v4.setCouleur("noire");
+		v4.setNum_imat("AA-004-AA");
+		v4.setVitesse_inst(30);
+		
+		v5.setCouleur("blanche");
+		v5.setNum_imat("AA-005-AA");
+		v5.setVitesse_inst(50);
+		
+		Conducteur c3 = new Conducteur("Dédé", 58);
+		c3.getVehiculeConduits().add(v4);
+		c3.getVehiculeConduits().add(v5);
+		
+		c3.listingVehiculeConduits();
 	}
 
 }
