@@ -44,4 +44,9 @@ public class Conducteur {
 		return vehiculesConduits;
 	}
 	
+	public void listingVehiculeConduits() {
+		for(Vehicule vehicule : this.getVehiculeConduits()) {
+			vehicule.afficherCaracteristiques();
+		}
+	}
 }
