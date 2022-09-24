@@ -37,5 +37,11 @@ public class Vehicule {
 	public void setVitesse_inst(int vitesse_inst) {
 		this.vitesse_inst = vitesse_inst;
 	}
+	public Conducteur getConducteur() {
+		return conducteur;
+	}
+	public void setConducteur(Conducteur conducteur) {
+		this.conducteur = conducteur;
+	}
 	
 }
