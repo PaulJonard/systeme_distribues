@@ -1,4 +1,4 @@
-package fr.univ_smb.iae.mtii.tp2;
+package fr.univ_smb.iae.mtii.tp2.jonardp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,9 +11,17 @@ import java.util.Scanner;
 public class ClientMeteo {
 	private int port = 9090; // un attribut de type Entier (int) pour le numéro de port
 	
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
+
 	// Methode pour ouvrir une connexion (socket) avec le serveur
 	public Socket ouvrirConnexion(String ip) throws IOException {
-		Socket s = new Socket(ip, this.port); // tentative de connexion au serveur
+		Socket s = new Socket(ip, this.getPort()); // tentative de connexion au serveur
 		return s;
 	}
 	
@@ -51,7 +59,7 @@ public class ClientMeteo {
 	// du serveur sous forme d'une chaîne de caractères
 	public String demanderSaisieIP() {
 		Scanner clavier = new Scanner(System.in);
-		System.out.println("Saisir l'adresse IP du serveur météo (port 9090):");
+		System.out.println("Saisir l'adresse IP du serveur météo (port " + this.getPort() + " ):");
 		String ip = clavier.next();
 		return ip;
 	}

@@ -1,4 +1,4 @@
-package fr.univ_smb.iae.mtii.tp2;
+package fr.univ_smb.iae.mtii.tp2.jonardp;
 
 import java.io.IOException;
 import java.io.PrintWriter;
