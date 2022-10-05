@@ -9,7 +9,7 @@ import java.util.Scanner;
 * Client qui va se connecter au serveur.
 */
 public class ClientMeteo {
-	private int port = 9090; // un attribut de type Entier (int) pour le numéro de port
+	private int port; // un attribut de type Entier (int) pour le numéro de port
 	
 	public int getPort() {
 		return port;
@@ -19,6 +19,10 @@ public class ClientMeteo {
 		this.port = port;
 	}
 
+	public ClientMeteo() {
+		this.setPort(9090);
+	}
+	
 	// Methode pour ouvrir une connexion (socket) avec le serveur
 	public Socket ouvrirConnexion(String ip) throws IOException {
 		Socket s = new Socket(ip, this.getPort()); // tentative de connexion au serveur
