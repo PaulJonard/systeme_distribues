@@ -16,11 +16,16 @@ public class ClientMeteo {
 	}
 
 	public void setPort(int port) {
-		this.port = port;
-	}
+		if (port >= 8500 && port <= 9500) {// Intervalle de valeur autorisee du port
+			this.port = port;
+			System.out.println("Le port a ete modifie. Il faudrait relancer le serveur !\n");
+		}
+		else
+			System.out.println("Valeur non autorisee: le port n'a pas ete modifie.\n");
+		}
 
 	public ClientMeteo() {
-		this.setPort(9090);
+		this.setPort(900);
 	}
 	
 	// Methode pour ouvrir une connexion (socket) avec le serveur
