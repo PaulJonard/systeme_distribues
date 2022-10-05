@@ -35,17 +35,18 @@ public class ClientMeteo {
 
 	// Methode pour afficher sur la console Java le message recu du serveur
 	public void afficherMeteo(String msg) {
-		System.out.println(msg); // on affiche ce que retourne le serveur (le messageRecu)
+		System.out.println("=".repeat(msg.length() + 2));
+		System.out.println("=" + msg + "="); // on affiche ce que retourne le serveur (le messageRecu)
+		System.out.println("=".repeat(msg.length() + 2));
 	}
+	
 	/**
 	* Le client est une application Java.
 	* Il demande à l'utilisateur de saisir l'adresse IP du serveur de météo
 	* ou son nom (hostname).
 	* Ensuite, il se connecte à ce serveur et affiche ce qui lui retourne le
 	serveur.
-	
 	*/
-	
 	public static void main(String[] args) throws IOException {
 	// On cree un client (au sens un objet de type Client qui va se connecter au serveur...
 	 ClientMeteo client = new ClientMeteo();

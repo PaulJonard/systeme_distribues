@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -20,7 +21,6 @@ public class ServeurMeteo {
 		System.out.println("Le serveur est prêt à donner la météo. "
 						+ "Il est en attente de demandes de client(s) sur le port "
 						+ this.getPort() + ".\n");
-	
 		try {
 			while (true) {
 				Socket socket = listener.accept();
@@ -31,8 +31,11 @@ public class ServeurMeteo {
 							this.setBulletin_precedent("aucun bulletin");
 						else
 							this.setBulletin_precedent(this.bulletin_courant);
-						this.setBulletin_courant("Aujourd'hui, le " + new Date().toString() + " - " + this.demanderSaisieAvisMeteo());
-						out.println(bulletin_courant);
+					
+					this.setBulletin_courant(demanderSaisieAvisMeteo());
+					
+					String toReturn = "Aujourd'hui, le " + new SimpleDateFormat("dd-MM-YYYY").format(new Date()) + " " + this.getBulletin_courant();
+					out.println(toReturn);
 				} finally {
 					socket.close();
 				}	
