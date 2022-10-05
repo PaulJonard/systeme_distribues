@@ -30,16 +30,12 @@ public class ServeurMeteo {
 						if (this.getBulletin_courant() == null)
 							this.setBulletin_precedent("aucun bulletin");
 						else
-							this.setBulletin_precedent
-							(this.bulletin_courant);
-					this.setBulletin_courant("Aujourd'hui, le " +
-							new Date().toString() + " - " +
-							this.demanderSaisieAvisMeteo());
-					String messageDuServeur = "Il fait tout le temps beau, c'est trop beau !\n"; out.println(messageDuServeur);
+							this.setBulletin_precedent(this.bulletin_courant);
+						this.setBulletin_courant("Aujourd'hui, le " + new Date().toString() + " - " + this.demanderSaisieAvisMeteo());
+						out.println(bulletin_courant);
 				} finally {
 					socket.close();
-				}
-	
+				}	
 			}
 		}
 		finally {
