@@ -7,6 +7,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class BulletinMeteo {
 	private Date date_avis;
 	private String zone_geo, avis;
+	
+	private static final int MAX_BULLETINS = 30;
 
 	// Constructeur
 	public BulletinMeteo() {
@@ -58,7 +60,7 @@ public class BulletinMeteo {
 		int randomTempsQuilFaitNum, randomTemperaturesNum, randomGeoZonesNum;
 		BulletinMeteo bulletin;
 		String avis;
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < MAX_BULLETINS; i++) {
 			randomTempsQuilFaitNum = ThreadLocalRandom.current().nextInt(0, tempsQuilFait.length);
 			randomTemperaturesNum = ThreadLocalRandom.current().nextInt(0, temperatures.length);
 			randomGeoZonesNum = ThreadLocalRandom.current().nextInt(0, geoZones.length);
