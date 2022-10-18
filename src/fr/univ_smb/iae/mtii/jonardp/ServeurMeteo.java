@@ -161,6 +161,13 @@ public class ServeurMeteo {
 		}
 		return bulletins;
 	}
+	
+	public static void afficherBulletins(ArrayList<BulletinMeteo> bulletinsMeteo) {
+		System.out.println("===== Affichage des bulletins meteo =====\n");
+		for (BulletinMeteo bulletin : bulletinsMeteo) { // ???? est UNE collection d'objets
+			System.out.println(bulletin.toString());
+		}
+	}
 
 	public int getPort() {
 		return port;
@@ -184,9 +191,7 @@ public class ServeurMeteo {
 		// ServeurMeteo obj = new ServeurMeteo();
 		ServeurMeteo serveur = new ServeurMeteo();
 		
-		System.out.println(serveur.bulletinsMeteo.size());
-		
-		System.out.println(serveur.rechercherBulletins("Paris"));
+		ServeurMeteo.afficherBulletins(serveur.rechercherBulletins("Annecy"));
 
 		try {
 			serveur.ouvrirConnexion();
