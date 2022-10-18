@@ -52,22 +52,42 @@ public class BulletinMeteo {
 				this.getAvis();
 	}
 	
+	public static BulletinMeteo randomBulletinMeteo() {
+		String[] tempsQuilFait = {"Grand beau temps", "Pluie", "Quelques averses",
+		"Brouillard givrant", "Vent fort", "Nuageux"};
+		String[] temperatures = {"Doux", "Chaud", "Froid", "De saison"};
+		String[] geoZones = {"Annecy", "Paris", "Lyon", "Chambery"};
+		
+		int randomTempsQuilFaitNum, randomTemperaturesNum, randomGeoZonesNum;
+		
+		BulletinMeteo bulletin;
+		String avis;
+		
+		randomTempsQuilFaitNum = ThreadLocalRandom.current().nextInt(0,
+		tempsQuilFait.length);
+		randomTemperaturesNum = ThreadLocalRandom.current().nextInt(0,
+		temperatures.length);
+		randomGeoZonesNum = ThreadLocalRandom.current().nextInt(0,
+		geoZones.length);
+		
+		avis = tempsQuilFait[randomTempsQuilFaitNum] + " - " + temperatures[randomTemperaturesNum];
+		bulletin = new BulletinMeteo(avis);
+		bulletin.setZone_geo(geoZones[randomGeoZonesNum]);
+		
+		return bulletin;
+	}
+	
 	public static ArrayList<BulletinMeteo> genererUnHistorique() {
 		ArrayList<BulletinMeteo> bulletins = new ArrayList<BulletinMeteo>();
 		String[] tempsQuilFait = {"Grand beau temps", "Pluie", "Quelques averses", "Brouillard givrant", "Ventfort", "Nuageux"};
 		String[] temperatures = {"Doux", "Chaud", "Froid", "De saison"};
 		String[] geoZones = {"Annecy", "Paris", "Lyon", "Chambery"};
 		int randomTempsQuilFaitNum, randomTemperaturesNum, randomGeoZonesNum;
+		
 		BulletinMeteo bulletin;
 		String avis;
 		for (int i = 0; i < MAX_BULLETINS; i++) {
-			randomTempsQuilFaitNum = ThreadLocalRandom.current().nextInt(0, tempsQuilFait.length);
-			randomTemperaturesNum = ThreadLocalRandom.current().nextInt(0, temperatures.length);
-			randomGeoZonesNum = ThreadLocalRandom.current().nextInt(0, geoZones.length);
-			avis = tempsQuilFait[randomTempsQuilFaitNum] + " - " + temperatures[randomTemperaturesNum];
-			bulletin = new BulletinMeteo(avis);
-			bulletin.setZone_geo(geoZones[randomGeoZonesNum]);
-			bulletins.add(bulletin);
+			bulletins.add(randomBulletinMeteo());
 		}
 		return bulletins;
 	}
