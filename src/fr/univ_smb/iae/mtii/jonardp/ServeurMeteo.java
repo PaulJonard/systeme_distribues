@@ -151,6 +151,16 @@ public class ServeurMeteo {
 		 * it.next(); if (bulletin.getZone_geo() == zone) { it.remove(); } }
 		 */
 	}
+	
+	public ArrayList<BulletinMeteo> rechercherBulletins(String zoneG) {
+		ArrayList<BulletinMeteo> bulletins = new ArrayList<BulletinMeteo>();
+		for (BulletinMeteo bulletin : this.getBulletinsMeteo()) {
+			if (bulletin.getZone_geo() == zoneG)
+			// Si la zoneGeo du blletin correspond a celle recherchee on ajoute le bulletin
+			bulletins.add(bulletin);
+		}
+		return bulletins;
+	}
 
 	public int getPort() {
 		return port;
@@ -175,6 +185,8 @@ public class ServeurMeteo {
 		ServeurMeteo serveur = new ServeurMeteo();
 		
 		System.out.println(serveur.bulletinsMeteo.size());
+		
+		System.out.println(serveur.rechercherBulletins("Paris"));
 
 		try {
 			serveur.ouvrirConnexion();
