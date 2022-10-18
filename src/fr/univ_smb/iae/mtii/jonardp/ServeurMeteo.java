@@ -45,7 +45,9 @@ public class ServeurMeteo {
 					out.println(messageDuServeur);
 					nbRequetesTraitees++;
 					if ((nbRequetesTraitees % 5) == 0)
-						this.afficherBulletins(); // toutes les 5 requetes traitees on affiche l'historique
+						afficherBulletins(getBulletinsMeteo());
+						
+					this.bulletinsMeteo.add(BulletinMeteo.randomBulletinMeteo());
 				} finally {
 					socket.close();
 				}
