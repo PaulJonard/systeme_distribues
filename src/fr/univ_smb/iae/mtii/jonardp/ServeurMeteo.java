@@ -14,6 +14,14 @@ public class ServeurMeteo {
 	// On gere desormais l'historique des bulletins meteo:
 	// une collection d'objets, instances de la classe BulletinMeteo
 	private ArrayList<BulletinMeteo> bulletinsMeteo = new ArrayList<BulletinMeteo>();
+	public ArrayList<BulletinMeteo> getBulletinsMeteo() {
+		return bulletinsMeteo;
+	}
+
+	public void setBulletinsMeteo(ArrayList<BulletinMeteo> bulletinsMeteo) {
+		this.bulletinsMeteo = bulletinsMeteo;
+	}
+
 	private int port = 9090;
 	private ServerSocket serveurSocket;
 
@@ -108,7 +116,7 @@ public class ServeurMeteo {
 
 	// Modifications exigees
 	public ServeurMeteo() {
-
+		this.setBulletinsMeteo(BulletinMeteo.genererUnHistorique());
 	}
 
 	// Il faudrait nommer cette methode rechercherBulletin
@@ -165,12 +173,8 @@ public class ServeurMeteo {
 		// On cree un objet...
 		// ServeurMeteo obj = new ServeurMeteo();
 		ServeurMeteo serveur = new ServeurMeteo();
-		// On cree des bulletins meteo
-		serveur.bulletinsMeteo = BulletinMeteo.genererUnHistorique();
-
-		System.out.println(serveur.nbBulletins() + "\n");
-		serveur.supprimerTousLesBulletins("Europe");
-		System.out.println(serveur.nbBulletins() + "\n");
+		
+		System.out.println(serveur.bulletinsMeteo.size());
 
 		try {
 			serveur.ouvrirConnexion();
