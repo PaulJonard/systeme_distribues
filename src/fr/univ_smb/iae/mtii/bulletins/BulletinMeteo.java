@@ -1,6 +1,8 @@
 package fr.univ_smb.iae.mtii.bulletins;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class BulletinMeteo {
 	private Date date_avis;
@@ -46,6 +48,26 @@ public class BulletinMeteo {
 				this.date_avis.toString() +
 				" - Avis : " +
 				this.getAvis();
+	}
+	
+	public static ArrayList<BulletinMeteo> genererUnHistorique() {
+		ArrayList<BulletinMeteo> bulletins = new ArrayList<BulletinMeteo>();
+		String[] tempsQuilFait = {"Grand beau temps", "Pluie", "Quelques averses", "Brouillard givrant", "Ventfort", "Nuageux"};
+		String[] temperatures = {"Doux", "Chaud", "Froid", "De saison"};
+		String[] geoZones = {"Annecy", "Paris", "Lyon", "Chambery"};
+		int randomTempsQuilFaitNum, randomTemperaturesNum, randomGeoZonesNum;
+		BulletinMeteo bulletin;
+		String avis;
+		for (int i = 0; i < 10; i++) {
+			randomTempsQuilFaitNum = ThreadLocalRandom.current().nextInt(0, tempsQuilFait.length);
+			randomTemperaturesNum = ThreadLocalRandom.current().nextInt(0, temperatures.length);
+			randomGeoZonesNum = ThreadLocalRandom.current().nextInt(0, geoZones.length);
+			avis = tempsQuilFait[randomTempsQuilFaitNum] + " - " + temperatures[randomTemperaturesNum];
+			bulletin = new BulletinMeteo(avis);
+			bulletin.setZone_geo(geoZones[randomGeoZonesNum]);
+			bulletins.add(bulletin);
+		}
+		return bulletins;
 	}
 
 }
