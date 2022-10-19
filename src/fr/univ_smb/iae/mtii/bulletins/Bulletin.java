@@ -1,11 +1,20 @@
 package fr.univ_smb.iae.mtii.bulletins;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Bulletin {
+public abstract class Bulletin {	
+	private String zone_geo;
+	private String avis;
 	private Date date_avis;
+
+	public String getZone_geo() {
+		return zone_geo;
+	}
+	public void setZone_geo(String zone_geo) {
+		this.zone_geo = zone_geo;
+	}
+	
 	public Date getDate_Avis() {
 		return this.date_avis;
 	}
@@ -13,21 +22,33 @@ public class Bulletin {
 		this.date_avis = date_avis;
 	}
 	
-	private String avis;
+
 	public String getAvis() {
 		return avis;
 	}
-
 	public void setAvis(String avis) {
 		this.avis = avis;
 	}
 	
 	protected static final int MAX_BULLETINS = 30;
+	
+	private static final String[] GEO_ZONES = {"Annecy", "Paris", "Lyon", "Chambery"};
+	private static final String[] TEMPS = {"Grand beau temps", "Pluie", "Quelques averses", "Brouillard givrant", "Vent fort", "Nuageux"};
+	private static final String[] TEMPERATURES = {"Doux", "Chaud", "Froid", "De saison"};
 
 	// Constructeur
 	public Bulletin() {
-		// on initialise la date de l'avis avec la date courante au moment 
-		// de la creation de l'objet
+		int randomTempsQuilFaitNum, randomTemperaturesNum, randomGeoZonesNum;
+				
+		randomTempsQuilFaitNum = ThreadLocalRandom.current().nextInt(0, TEMPS.length);
+		randomTemperaturesNum = ThreadLocalRandom.current().nextInt(0, TEMPERATURES.length);
+		randomGeoZonesNum = ThreadLocalRandom.current().nextInt(0, GEO_ZONES.length);
+
+		this.setAvis(TEMPS[randomTempsQuilFaitNum] + " - " + TEMPERATURES[randomTemperaturesNum]);
+		
+
+		this.zone_geo = GEO_ZONES[randomGeoZonesNum];
+		
 		this.setDate_Avis(new Date()); 
 	}
 

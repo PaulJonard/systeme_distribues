@@ -5,20 +5,10 @@ import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class BulletinMeteo extends Bulletin{
-	private String zone_geo;
-	public String getZone_geo() {
-		return zone_geo;
-	}
 
-	public void setZone_geo(String zone_geo) {
-		this.zone_geo = zone_geo;
-	}
-	
 	
 	// Constructeur
 	public BulletinMeteo() {
-		// on initialise la date de l'avis avec la date courante au moment 
-		// de la creation de l'objet
 		super();
 	}
 
@@ -28,35 +18,19 @@ public class BulletinMeteo extends Bulletin{
 		// on initialise l'avis
 		super(avis);
 	}
-
-	public static BulletinMeteo randomBulletinMeteo() {
-		String[] tempsQuilFait = {"Grand beau temps", "Pluie", "Quelques averses", "Brouillard givrant", "Vent fort", "Nuageux"};
-		String[] temperatures = {"Doux", "Chaud", "Froid", "De saison"};
-		String[] geoZones = {"Annecy", "Paris", "Lyon", "Chambery"};
-		
-		int randomTempsQuilFaitNum, randomTemperaturesNum, randomGeoZonesNum;
-		
-		BulletinMeteo bulletin;
-		String avis;
-		
-		randomTempsQuilFaitNum = ThreadLocalRandom.current().nextInt(0, tempsQuilFait.length);
-		randomTemperaturesNum = ThreadLocalRandom.current().nextInt(0, temperatures.length);
-		randomGeoZonesNum = ThreadLocalRandom.current().nextInt(0, geoZones.length);
-		
-		avis = tempsQuilFait[randomTempsQuilFaitNum] + " - " + temperatures[randomTemperaturesNum];
-		bulletin = new BulletinMeteo(avis);
-		bulletin.setZone_geo(geoZones[randomGeoZonesNum]);
-		
-		return bulletin;
-	}
 	
-	public static ArrayList<BulletinMeteo> genererUnHistorique() {
-		ArrayList<BulletinMeteo> bulletins = new ArrayList<BulletinMeteo>();
+	public String toString() {
+		return super.toString() + // appel de la methode de la super-classe
+				" (" + this.getZone_geo() + ") "; // on specialise
+	}
+
+	
+	public static ArrayList<Bulletin> genererUnHistorique() {
+		ArrayList<Bulletin> bulletins = new ArrayList<Bulletin>();
 
 		for (int i = 0; i < MAX_BULLETINS; i++) {
-			bulletins.add(randomBulletinMeteo());
+			bulletins.add(new BulletinMeteo());
 		}
 		return bulletins;
 	}
-
 }
