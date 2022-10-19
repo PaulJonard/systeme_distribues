@@ -32,4 +32,9 @@ public class BulletinMeteo extends Bulletin{
 		}
 		return bulletins;
 	}
+
+	@Override
+	public void interpreter() {
+		System.out.println("Le bulletin est interprete par un meterologue.\n");		
+	}
 }

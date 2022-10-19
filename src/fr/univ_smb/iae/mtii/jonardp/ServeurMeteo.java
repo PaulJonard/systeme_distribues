@@ -153,6 +153,8 @@ public class ServeurMeteo {
 		serveur.afficherBulletins();
 		serveur.supprimerTousLesBulletins("Annecy");
 		
+		serveur.getBulletin_courant().interpreter();
+		
 		ServeurMeteo.afficherBulletins(serveur.rechercherBulletins("Annecy"));
 
 		try {

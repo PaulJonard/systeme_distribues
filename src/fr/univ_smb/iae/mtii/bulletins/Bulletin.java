@@ -71,4 +71,6 @@ public abstract class Bulletin {
 				this.getAvis() +
 				" (" + this.getZone_geo() + ") "; // on specialise
 	}
+	
+	public abstract void interpreter();
 }
