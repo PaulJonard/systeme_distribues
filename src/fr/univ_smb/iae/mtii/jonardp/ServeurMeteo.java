@@ -59,6 +59,7 @@ public class ServeurMeteo {
 					if ((nbRequetesTraitees % 5) == 0) {
 						
 						afficherBulletins(getBulletins());
+						this.getBulletin_courant().interpreter();
 						this.getBulletins().add(new BulletinMeteo());
 					}
 						
@@ -152,9 +153,7 @@ public class ServeurMeteo {
 		
 		serveur.afficherBulletins();
 		serveur.supprimerTousLesBulletins("Annecy");
-		
-		serveur.getBulletin_courant().interpreter();
-		
+				
 		ServeurMeteo.afficherBulletins(serveur.rechercherBulletins("Annecy"));
 
 		try {
