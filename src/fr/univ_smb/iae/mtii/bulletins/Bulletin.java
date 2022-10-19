@@ -68,6 +68,7 @@ public abstract class Bulletin {
 		return "Bulletin du " + 
 				this.date_avis.toString() + 
 				" - Avis : " + 
-				this.getAvis();
+				this.getAvis() +
+				" (" + this.getZone_geo() + ") "; // on specialise
 	}
 }

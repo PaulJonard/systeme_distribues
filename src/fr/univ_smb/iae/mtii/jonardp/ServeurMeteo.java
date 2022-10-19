@@ -144,16 +144,11 @@ public class ServeurMeteo {
 		// ServeurMeteo obj = new ServeurMeteo();
 		ServeurMeteo serveur = new ServeurMeteo();
 
-		serveur.setBulletins(BulletinMeteo.genererUnHistorique());
-		BulletinAvalanche ba1 = new BulletinAvalanche();
-		ba1.setHauteurNeigeFraiche(10);
-		ba1.setNiveauRisque(2);
+		ArrayList<Bulletin> bm = BulletinMeteo.genererUnHistorique();
+		ArrayList<Bulletin> ba = BulletinAvalanche.genererUnHistorique();
 		
-		BulletinAvalanche ba2 = new BulletinAvalanche();
-		ba2.setHauteurNeigeFraiche(50);
-		
-		serveur.ajouterBulletin(ba1);
-		serveur.ajouterBulletin(ba2);
+		bm.addAll(ba);
+		serveur.setBulletins(bm);
 		
 		serveur.afficherBulletins();
 		serveur.supprimerTousLesBulletins("Annecy");

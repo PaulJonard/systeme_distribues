@@ -20,8 +20,7 @@ public class BulletinMeteo extends Bulletin{
 	}
 	
 	public String toString() {
-		return super.toString() + // appel de la methode de la super-classe
-				" (" + this.getZone_geo() + ") "; // on specialise
+		return super.toString();
 	}
 
 	
